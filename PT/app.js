@@ -4,11 +4,14 @@ const User = require("./models/User");
 const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
+require("dotenv").config();
 
 const productRoutes = require("./routes/productos");
 const categoryRoutes = require("./routes/categorias");
 const usuariosRoutes = require("./routes/usuarios");
 const ordenesRoutes = require("./routes/ordenes");
+const clientesRoutes = require("./routes/clientes");
+const authRoutes = require("./routes/auth");
 
 app.use(bodyParser.json());
 app.use(express.json());
@@ -16,6 +19,8 @@ app.use("/api/productos", productRoutes);
 app.use("/api/categorias", categoryRoutes);
 app.use("/api/usuarios", usuariosRoutes);
 app.use("/api/ordenes", ordenesRoutes);
+app.use("/api/clientes", clientesRoutes);
+app.use("/api/auth", authRoutes);
 
 sequelize
   .sync({ force: false })

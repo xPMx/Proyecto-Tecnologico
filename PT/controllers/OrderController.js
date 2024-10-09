@@ -2,9 +2,9 @@ const Order = require("../models/Order");
 
 exports.createOrder = async (req, res) => {
   try {
-    const { userId, productId, quantity, totalPrice } = req.body;
+    const { clientId, productId, quantity, totalPrice } = req.body;
     const newOrder = await Order.create({
-      userId,
+      clientId,
       productId,
       quantity,
       totalPrice,
