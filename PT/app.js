@@ -3,6 +3,7 @@ const sequelize = require("./config/database");
 const User = require("./models/User");
 const bodyParser = require("body-parser");
 const app = express();
+const cors = require("cors");
 const port = 3000;
 require("dotenv").config();
 
@@ -13,6 +14,7 @@ const ordenesRoutes = require("./routes/ordenes");
 const clientesRoutes = require("./routes/clientes");
 const authRoutes = require("./routes/auth");
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use("/api/productos", productRoutes);
