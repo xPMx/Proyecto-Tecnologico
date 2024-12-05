@@ -28,6 +28,10 @@ const Product = sequelize.define(
         key: "id",
       },
     },
+    imageUrl: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     timestamps: true,
